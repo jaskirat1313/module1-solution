@@ -7,7 +7,7 @@
       $scope.lunchCheck = function(){
                             var lunch = $scope.lunchMenu;
                             if(lunch!=undefined && lunch!=''){
-                              if(countElement(lunch)<=3)
+                              if(count(lunch)<=3)
                               {
                                 $scope.message = 'Enjoy!';
                                 $scope.color='green';
@@ -23,11 +23,11 @@
                             }
                           };
     }
-    function countElement(string){
+    function count(string){
       var count = 0;
-      var list = string.split(',');
-      for(var i=0;i<list.length;i++){
-        if(list[i].trim()!=',')
+      var menu = string.split(',');
+      for(var i=0;i<menu.length;i++){
+        if(menu[i].trim()!=',')
           count++;
       };
       return count;
