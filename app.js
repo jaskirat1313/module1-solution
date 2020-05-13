@@ -5,16 +5,21 @@
     LunchCheckController.$inject = ['$scope'];
     function LunchCheckController($scope) {
       $scope.lunchCheck = function(){
-                            var lunchMenu = $scope.lunchMenu;
-                            if(lunchMenu!=undefined && lunchMenu!=''){
-                              if(countElement(lunchMenu)<=3)
+                            var lunch = $scope.lunchMenu;
+                            if(lunch!=undefined && lunch!=''){
+                              if(countElement(lunch)<=3)
+                              {
                                 $scope.message = 'Enjoy!';
+                                $scope.color='green';
+                            }
                               else
+                              {
                                 $scope.message = 'Too much!';
-                              $scope.colors='green';
+                              $scope.color='green';
+                              }
                             }else{
                               $scope.message = 'Please enter data first';
-                              $scope.colors='red';
+                              $scope.color='red';
                             }
                           };
     }
@@ -22,7 +27,7 @@
       var count = 0;
       var list = string.split(',');
       for(var i=0;i<list.length;i++){
-        if(list[i].trim()!='')
+        if(list[i].trim()!=',')
           count++;
       };
       return count;
